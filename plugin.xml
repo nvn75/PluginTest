@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Sample Category"
+            id="PluginTest">
+      </category>
+      <view
+            id="plugintest.views.SampleView"
+            name="Sample View"
+            icon="icons/sample.png"
+            class="plugintest.views.SampleView"
+            category="PluginTest"
+            inject="true">
+      </view>
+      <view
+            category="com.myplugin.rmp"
+            class="com.myplugin.rmp.views.PropertyManagerView"
+            id="com.myplugin.rmp.views.PropertyManagerView"
+            name="Property Manager View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="plugintest.views.SampleView"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               ratio="0.5">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+</plugin>
